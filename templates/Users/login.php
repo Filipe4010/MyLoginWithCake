@@ -10,7 +10,7 @@
                             <?= $this->Form->input('email', array('type' => 'email')); ?>
                             <?= $this->Form->input('password', array('type' => 'password')); ?>
                             <?= $this->Form->submit('Login', array('class' => 'button')); ?>
-                        <?= $this->Form->end(); ?>
+                        <?= $this->Form->end();?>
                     </div>
                 </div>
             </div>
