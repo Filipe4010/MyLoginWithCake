@@ -19,6 +19,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!DOCTYPE html>
 <html>
 <head>
+   
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -32,19 +33,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('milligram.min.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
+<body style="background: #778899;">
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="/"><span>Cake</span>PHP</a>
+            <h1><a href=""><?= $this->fetch('title') ?></a></h1>
         </div>
-        <div class="top-nav-links">
+        <?php if($loggedIn == true) : ?> 
+            <div class="top-nav-links">
             <a><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']); ?></a>
-        </div>
+            
+        <?php elseif($loggedIn == false) : ?>
+            
+            <a><?= $this->Html->link('Register', ['controller' => 'users', 'action' => 'register']); ?></a>
+            </div>
+        <?php endif; ?>
+
     </nav>
     <main class="main">
         <div class="container">
